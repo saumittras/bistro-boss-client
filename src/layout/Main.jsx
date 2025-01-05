@@ -5,13 +5,15 @@ import Navbar from "../pages/shared/NavBar/Navbar";
 
 const Main = () => {
   const location = useLocation();
+  const onHeaderFooter =
+    location.pathname.includes("login") || location.pathname.includes("signup");
   return (
     <div>
-      <div>{location.pathname === "/login" ? null : <Navbar></Navbar>}</div>
+      <div>{onHeaderFooter ? null : <Navbar></Navbar>}</div>
       <div>
         <Outlet></Outlet>
       </div>
-      <div>{location.pathname === "/login" ? null : <Footer></Footer>}</div>
+      <div>{onHeaderFooter ? null : <Footer></Footer>}</div>
     </div>
   );
 };
